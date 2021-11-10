@@ -49,5 +49,22 @@ namespace PerfectChannel.WebApi.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPut]
+        public IActionResult UpdateTask(int id)
+        {
+            try
+            {
+                Task task = TaskRepository.GetTask(id);
+                task.Status = task.Status == TaskStatus.Pending ? TaskStatus.Completed : TaskStatus.Pending;
+                TaskRepository.Save();
+
+                return Ok(task);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
     }
 }
