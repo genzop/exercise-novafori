@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Col, Row } from "antd";
+
+import { TaskContextProvider } from "./store/task-context";
+
+import TaskList from "./components/tasks/task-list";
+import TaskSectionList from "./components/tasks/task-section-list";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TaskContextProvider>
+      <Row>
+        <Col xs={{ span: 24, order: 2 }} lg={{ span: 4, order: 1 }}>
+          <TaskSectionList />
+        </Col>
+        <Col xs={{ span: 24, order: 1 }} lg={{ span: 20, order: 2 }}>
+          <TaskList />
+        </Col>
+      </Row>
+    </TaskContextProvider>
   );
 }
 

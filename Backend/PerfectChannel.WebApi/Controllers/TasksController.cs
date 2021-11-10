@@ -10,11 +10,11 @@ namespace PerfectChannel.WebApi.Controllers
     [Route("api/[controller]")]
     [EnableCors("AllowOrigin")]
     [ApiController]
-    public class TaskController : ControllerBase
+    public class TasksController : ControllerBase
     {
         private ITaskRepository TaskRepository;
 
-        public TaskController(ITaskRepository taskRepository)
+        public TasksController(ITaskRepository taskRepository)
         {
            TaskRepository = taskRepository;
         }
