@@ -7,6 +7,8 @@ import TypeTask from "../../types/task";
 
 import TaskItem from "./task-item";
 
+import checked from "./../../assets/images/checked.png";
+
 import classes from "./task-list.module.scss";
 
 const TaskList = () => {
@@ -26,6 +28,13 @@ const TaskList = () => {
   return (
     <div className={classes.list}>
       <div className={classes.title}>To-Do</div>
+
+      {ctx.list.length === 0 && (
+        <div className={classes.empty}>
+          <img src={checked} alt="Logo" className={classes.icon} />
+          <div className={classes.description}>You've done it everything!</div>
+        </div>
+      )}
 
       {ctx.list.map((item: TypeTask, index) => (
         <TaskItem
