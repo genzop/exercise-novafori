@@ -6,6 +6,7 @@ const TaskContext = createContext({
   updateList: (tasks) => {},
   updateStatus: (status) => {},
   addTask: (task) => {},
+  updateTask: (task) => {},
 });
 
 export function TaskContextProvider(props) {
@@ -26,12 +27,26 @@ export function TaskContextProvider(props) {
     setList(nItems);
   };
 
+  const updateTask = (task) => {
+    let nItems = [...list];
+    const index = nItems.findIndex((item) => item.id === task.id);
+
+    if (status === "") {
+      nItems[index] = task;
+    } else {
+      nItems.splice(index, 1);
+    }
+
+    setList(nItems);
+  };
+
   const context = {
     list: list,
     status: status,
     updateList: updateList,
     updateStatus: updateStatus,
     addTask: addTask,
+    updateTask: updateTask,
   };
 
   return (

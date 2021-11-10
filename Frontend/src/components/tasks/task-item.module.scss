@@ -1,6 +1,8 @@
 .task {
   border-top: 1px solid #ebe9f1;
   padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
 
   &:first-of-type {
     border-top: none !important;
@@ -8,5 +10,7 @@
 
   > .description {
     overflow-wrap: break-word;
+    margin-left: 20px;
+    width: 95%;
   }
 }
