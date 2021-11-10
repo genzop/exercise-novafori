@@ -33,8 +33,18 @@ const TaskForm = (props: TypeTaskForm) => {
     onClose();
   };
 
+  const onModalClose = () => {
+    form.resetFields();
+    onClose();
+  };
+
   return (
-    <Modal title="Add Task" visible={visible} onCancel={onClose} footer={null}>
+    <Modal
+      title="Add Task"
+      visible={visible}
+      onCancel={onModalClose}
+      footer={null}
+    >
       <Form
         form={form}
         className={classes.form}
