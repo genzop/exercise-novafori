@@ -5,4 +5,8 @@
   &:first-of-type {
     border-top: none !important;
   }
+
+  > .description {
+    overflow-wrap: break-word;
+  }
 }

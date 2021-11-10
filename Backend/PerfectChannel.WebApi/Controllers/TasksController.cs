@@ -40,8 +40,9 @@ namespace PerfectChannel.WebApi.Controllers
             {
                 task.Status = TaskStatus.Pending;
                 TaskRepository.InsertTask(task);
+                TaskRepository.Save();
 
-                return Ok();
+                return Ok(task);
             }
             catch (Exception)
             {

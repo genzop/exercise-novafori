@@ -5,6 +5,7 @@ const TaskContext = createContext({
   status: "",
   updateList: (tasks) => {},
   updateStatus: (status) => {},
+  addTask: (task) => {},
 });
 
 export function TaskContextProvider(props) {
@@ -19,11 +20,18 @@ export function TaskContextProvider(props) {
     setStatus(status);
   };
 
+  const addTask = (task) => {
+    let nItems = [...list];
+    nItems.push(task);
+    setList(nItems);
+  };
+
   const context = {
     list: list,
     status: status,
     updateList: updateList,
     updateStatus: updateStatus,
+    addTask: addTask,
   };
 
   return (

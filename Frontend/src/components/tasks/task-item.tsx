@@ -1,8 +1,8 @@
-import TaskType from "../../types/task";
+import TypeTask from "../../types/task";
 
 import classes from "./task-item.module.scss";
 
-const TaskItem = (props: TaskType) => {
+const TaskItem = (props: TypeTask) => {
   const { description } = props;
 
   return (

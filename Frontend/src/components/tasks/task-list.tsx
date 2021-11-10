@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { FiPlus } from "react-icons/fi";
 
 import TaskContext from "../../store/task-context";
 import TypeTask from "../../types/task";
@@ -10,9 +11,12 @@ import TaskItem from "./task-item";
 import checked from "./../../assets/images/checked.png";
 
 import classes from "./task-list.module.scss";
+import TaskForm from "./task-form";
 
 const TaskList = () => {
   const ctx = useContext(TaskContext);
+
+  const [formVisible, setFormVisible] = useState(false);
 
   useEffect(() => {
     async function getList() {
@@ -24,6 +28,14 @@ const TaskList = () => {
 
     getList();
   }, [ctx.status]);
+
+  const onAddClick = () => {
+    setFormVisible(true);
+  };
+
+  const onAddClose = () => {
+    setFormVisible(false);
+  };
 
   return (
     <div className={classes.list}>
@@ -44,6 +56,11 @@ const TaskList = () => {
           status={item.status}
         />
       ))}
+
+      <div className={classes.add} onClick={onAddClick}>
+        <FiPlus />
+      </div>
+      <TaskForm visible={formVisible} onClose={onAddClose} />
     </div>
   );
 };
