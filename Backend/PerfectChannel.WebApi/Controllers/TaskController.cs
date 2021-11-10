@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using PerfectChannel.WebApi.Repositories.Implementations;
 
 namespace PerfectChannel.WebApi.Controllers
 {
@@ -8,6 +9,11 @@ namespace PerfectChannel.WebApi.Controllers
     [ApiController]
     public class TaskController : ControllerBase
     {
-        // TODO: to be completed
+        private ITaskRepository TaskRepository;
+
+        public TaskController(ITaskRepository taskRepository)
+        {
+           TaskRepository = taskRepository;
+        }
     }
 }
