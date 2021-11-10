@@ -15,14 +15,9 @@ namespace PerfectChannel.WebApi.Repositories.Implementations
             Context = context;
         }
 
-        public IEnumerable<Task> GetTasks()
+        public IEnumerable<Task> GetTasks(TaskStatus? status)
         {
-            return Context.Task.ToList();
-        }
-
-        public IEnumerable<Task> GetTasks(TaskStatus status)
-        {
-            return Context.Task.Where(task => task.Status == status).ToList();
+            return Context.Task.Where(task => status == null || task.Status == status).ToList();
         }
 
         public Task GetTask(int id)

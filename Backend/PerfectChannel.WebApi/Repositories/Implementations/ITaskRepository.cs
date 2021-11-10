@@ -6,8 +6,7 @@ namespace PerfectChannel.WebApi.Repositories.Implementations
 {
     public interface ITaskRepository : IDisposable
     {
-        IEnumerable<Task> GetTasks();
-        IEnumerable<Task> GetTasks(TaskStatus status);
+        IEnumerable<Task> GetTasks(TaskStatus? status);
         Task GetTask(int id);
         void InsertTask(Task task);
         void UpdateTask(Task task);
