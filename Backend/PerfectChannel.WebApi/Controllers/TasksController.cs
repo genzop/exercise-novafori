@@ -32,5 +32,21 @@ namespace PerfectChannel.WebApi.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost]
+        public IActionResult InsertTask(Task task)
+        {
+            try
+            {
+                task.Status = TaskStatus.Pending;
+                TaskRepository.InsertTask(task);
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
     }
 }
