@@ -24,7 +24,9 @@ const TaskList = () => {
   }, [ctx.status]);
 
   return (
-    <div>
+    <div className={classes.list}>
+      <div className={classes.title}>To-Do</div>
+
       {ctx.list.map((item: TypeTask, index) => (
         <TaskItem
           key={index}

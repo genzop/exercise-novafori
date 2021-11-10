@@ -1,0 +1,23 @@
+.list {
+  border-right: 1px solid #ebe9f1;
+  height: 100vh;
+
+  > .title {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 30px 10px 30px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .list {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    > .title {
+      display: none;
+    }
+  }
+}

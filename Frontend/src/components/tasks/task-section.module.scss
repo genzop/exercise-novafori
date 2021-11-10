@@ -4,7 +4,6 @@
   align-items: center;
   padding: 7px 20px;
   cursor: pointer;
-  font-weight: 500;
   border-left: 4px solid transparent;
 
   &:hover {
@@ -24,5 +23,31 @@
   }
 
   > .name {
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .section {
+    justify-content: center;
+    padding: 7px 20px;
+    border-top: 4px solid #ebe9f1;
+    border-left: none !important;
+    flex: 1;
+
+    &.active {
+      border-top: 4px solid #7367f0;
+    }
+
+    > .icon {
+      margin-right: 15px;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+    }
+
+    > .name {
+      font-weight: 500;
+    }
   }
 }

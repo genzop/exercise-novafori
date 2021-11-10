@@ -1,0 +1,16 @@
+.list {
+  height: 100vh;
+  overflow-y: auto;
+
+  > .title {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 30px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .list {
+    height: calc(100vh - 60px);
+  }
+}

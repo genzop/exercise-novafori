@@ -4,17 +4,19 @@ import TypeTaskSection from "../../types/task-section";
 
 import TaskSection from "./task-section";
 
-import classes from "./task-section.module.scss";
+import classes from "./task-section-list.module.scss";
 
 const TaskSectionList = () => {
   const sections = [
-    { value: "", name: "All Sections", icon: <FiMail /> },
+    { value: "", name: "All Tasks", icon: <FiMail /> },
     { value: "0", name: "Pending", icon: <FiInbox /> },
     { value: "1", name: "Completed", icon: <FiCheckSquare /> },
   ];
 
   return (
-    <div>
+    <div className={classes.list}>
+      <div className={classes.title}>Sections</div>
+
       {sections.map((item: TypeTaskSection, index) => (
         <TaskSection
           key={index}
