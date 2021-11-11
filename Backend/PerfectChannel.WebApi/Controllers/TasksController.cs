@@ -22,17 +22,18 @@ namespace PerfectChannel.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetTasks(TaskStatus? status)
+        public IActionResult GetAll(TaskStatus? status)
         {
             try
             {
-                IEnumerable<TaskDto> tasks = TaskRepository.GetAll(status)
-                                                           .Select(x => new TaskDto 
-                                                           { 
-                                                               Id = x.Id , 
-                                                               Description = x.Description, 
-                                                               Status = (int)x.Status 
-                                                           });
+                List<TaskDto> tasks = TaskRepository.GetAll(status)
+                                                    .Select(x => new TaskDto 
+                                                    { 
+                                                        Id = x.Id , 
+                                                        Description = x.Description, 
+                                                        Status = (int)x.Status 
+                                                    })
+                                                    .ToList();
 
                 return Ok(tasks);
             }
@@ -43,7 +44,7 @@ namespace PerfectChannel.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult InsertTask(TaskDto dto)
+        public IActionResult Insert(TaskDto dto)
         {
             try
             {
@@ -66,7 +67,7 @@ namespace PerfectChannel.WebApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateTask(int id)
+        public IActionResult Update(int id)
         {
             try
             {
@@ -80,12 +81,12 @@ namespace PerfectChannel.WebApi.Controllers
                 task.Status = task.Status == TaskStatus.Pending ? TaskStatus.Completed : TaskStatus.Pending;
                 TaskRepository.Save();
 
-                TaskDto response = new TaskDto();
-                response.Id = task.Id;
-                response.Description = task.Description;
-                response.Status = Convert.ToInt32(task.Status);
+                TaskDto dto = new TaskDto();
+                dto.Id = task.Id;
+                dto.Description = task.Description;
+                dto.Status = Convert.ToInt32(task.Status);
 
-                return Ok(task);
+                return Ok(dto);
             }
             catch (Exception)
             {
