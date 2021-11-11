@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 7px 20px;
+  padding: 10px 20px;
   cursor: pointer;
   border-left: 4px solid transparent;
+  transition: all 0.2s;
 
   &:hover {
     color: #7367f0;
@@ -16,7 +17,7 @@
   }
 
   > .icon {
-    margin-right: 15px;
+    margin-right: 20px;
     font-size: 17px;
     display: flex;
     align-items: center;
@@ -48,6 +49,18 @@
 
     > .name {
       font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .section {
+    > .icon {
+      font-size: 25px;
+    }
+
+    > .name {
+      display: none;
     }
   }
 }

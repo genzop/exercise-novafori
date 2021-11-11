@@ -3,9 +3,21 @@
   padding: 15px 30px;
   display: flex;
   flex-direction: row;
+  transition: all 0.2s;
 
   &:first-of-type {
     border-top: none !important;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 3px 10px 0 #ebe9f1;
+  }
+
+  &.completed {
+    > .description {
+      color: #b9b9c3 !important;
+    }
   }
 
   > .description {

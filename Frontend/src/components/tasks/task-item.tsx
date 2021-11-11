@@ -22,7 +22,7 @@ const TaskItem = (props: TypeTask) => {
   };
 
   return (
-    <div className={classes.task}>
+    <div className={`${classes.task} ${status === 1 ? classes.completed : ""}`}>
       <Checkbox checked={status === 1} onChange={onCheckboxClick} />
       <div className={classes.description}>{description}</div>
     </div>

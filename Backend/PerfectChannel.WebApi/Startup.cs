@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PerfectChannel.WebApi.Models;
 using PerfectChannel.WebApi.Repositories.Implementations;
+using System;
 
 namespace PerfectChannel.WebApi
 {
@@ -22,9 +23,7 @@ namespace PerfectChannel.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddDbContext<PerfectChannelContext>(x => x.UseSqlServer(Configuration.GetConnectionString("PerfectChannel")));
-
             services.AddTransient<ITaskRepository, TaskRepository>();
 
             ConfigureCors(services);

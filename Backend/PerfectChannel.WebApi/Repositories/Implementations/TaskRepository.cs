@@ -20,7 +20,7 @@ namespace PerfectChannel.WebApi.Repositories.Implementations
             return Context.Task.Where(task => status == null || task.Status == status).ToList();
         }
 
-        public Task GetTask(int id)
+        public Task GetTaskById(int id)
         {
             return Context.Task.Find(id);
         }
