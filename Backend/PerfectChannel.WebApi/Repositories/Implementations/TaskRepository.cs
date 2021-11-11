@@ -15,22 +15,22 @@ namespace PerfectChannel.WebApi.Repositories.Implementations
             Context = context;
         }
 
-        public IEnumerable<Task> GetTasks(TaskStatus? status)
+        public IEnumerable<Task> GetAll(TaskStatus? status)
         {
             return Context.Task.Where(task => status == null || task.Status == status).ToList();
         }
 
-        public Task GetTaskById(int id)
+        public Task GetById(int id)
         {
             return Context.Task.Find(id);
         }
 
-        public void InsertTask(Task task)
+        public void Insert(Task task)
         {
             Context.Task.Add(task);
         }
 
-        public void UpdateTask(Task task)
+        public void Update(Task task)
         {
             Context.Entry(task).State = EntityState.Modified;
         }

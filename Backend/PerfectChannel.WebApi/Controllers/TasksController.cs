@@ -26,7 +26,7 @@ namespace PerfectChannel.WebApi.Controllers
         {
             try
             {
-                IEnumerable<TaskDto> tasks = TaskRepository.GetTasks(status)
+                IEnumerable<TaskDto> tasks = TaskRepository.GetAll(status)
                                                            .Select(x => new TaskDto 
                                                            { 
                                                                Id = x.Id , 
@@ -51,7 +51,7 @@ namespace PerfectChannel.WebApi.Controllers
                 task.Description = dto.Description;
                 task.Status = TaskStatus.Pending;
 
-                TaskRepository.InsertTask(task);
+                TaskRepository.Insert(task);
                 TaskRepository.Save();
 
                 dto.Id = task.Id;
@@ -70,7 +70,7 @@ namespace PerfectChannel.WebApi.Controllers
         {
             try
             {
-                Task task = TaskRepository.GetTaskById(id);
+                Task task = TaskRepository.GetById(id);
 
                 if(task == null)
                 {
